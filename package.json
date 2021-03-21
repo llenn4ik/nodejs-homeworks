@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-homeworks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "npx nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llenn4ik/nodejs-homeworks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llenn4ik/nodejs-homeworks/issues"
+  },
+  "homepage": "https://github.com/llenn4ik/nodejs-homeworks#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

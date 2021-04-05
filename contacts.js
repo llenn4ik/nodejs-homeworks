@@ -1,10 +1,13 @@
+const { table } = require("console");
 const fs = require("fs");
 const path = require("path");
+const uuidv4 = require("uuid");
 
 const contactsPath = path.join(__dirname, "./db/contacts.json");
 
 // TODO: задокументировать каждую функцию
 function listContacts() {
+  
   //выводит в консоль список контактов
   fs.readFile(contactsPath, "utf8", (err, data) => {
     if (err) throw err;
@@ -32,13 +35,39 @@ function removeContact(contactId) {
     const users = JSON.parse(data.toString());
     const userById = users.find((user) => user.id === contactId);
     console.log(userById);
-      // вот дальше не понимаю как этого userById удалить из users?
+    // возвращает массив пользователей без того, что соответствует contactId
+    const filterUsers = users.filter((user) => user.id !== contactId);
+    console.log(filterUsers);
+
+      // полученные  filterUsers в консоли
+      
 
   });
 }
 
 function addContact(name, email, phone) {
-  // ...твой код
+  fs.readFile(contactsPath, "utf8", (err, data) => {
+
+    if (err) throw err;
+    const users = JSON.parse(data.toString());
+    const newContact = {
+      id: uuidv4(),
+      name,
+      email,
+      phone,
+    };
+    // проверяет, есть или нет такой пользователь в контактах
+    const newUsers = users.map((user) => user.name);
+    if (newUsers.includes(name)) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
+    // если контакта еще нет, добавляет его и выводит в консоль
+    users.push(newContact);
+console.log(newContact);
+    
+  });
+
 }
 
 

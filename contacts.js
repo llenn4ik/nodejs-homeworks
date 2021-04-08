@@ -51,7 +51,7 @@ function addContact(name, email, phone) {
     if (err) throw err;
     const users = JSON.parse(data.toString());
     const newContact = {
-      id: uuidv4(),
+      id: uuidv4.v4(),
       name,
       email,
       phone,
